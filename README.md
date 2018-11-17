@@ -13,11 +13,33 @@ Enlace de GitHub: https://github.com/brayanfa07/IA2-P2
 ### II Semestre 2018
 
 Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genéticos
-
 ---
 
 ## 1. Introducción
 
 
+## 2. Connect 4 Genético
 
-## 2. 
+
+## 3. Estructura del Algoritmo Genético
+
+
+## 4. Algoritmo General de Juego
+
+
+## 5. Algoritmo de detección de situaciones de gane
+
+
+## 6. Algoritmo genético para optimizar parámetros de estrategia
+
+
+## 7. Interfaz Interactiva de Juego Interactivo con Humano y Máquina 
+
+
+## Referencias Bibliográficas
+
+
+# Apéndice
+
+
+## Manual de Instalación
