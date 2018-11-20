@@ -2,43 +2,18 @@ class GeneticConnect4(object):
 	"""docstring for GeneticConnect4"""
 	def __init__(self):
 		super(GeneticConnect4, self).__init__()
-		self.array = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
-
-	def mutation(self):
-		#IMPLEMENT THE CODE
-		return 0		
-
-
-	def crossing(self):
-		#IMPLEMENT THE CODE
-		return 0
-
-
-	def selection(self):
-		#IMPLEMENT THE CODE
-		return 0
-
-
-	def fitness_funtion(self):
-		#IMPLEMENT THE CODE	
-		return 0
-
+		self.board = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
+		self.generation = "" #Insert and object of Generation(array)
 
 	def insert_disc(self):
-
 		self.print_grid()
-
 		disc = eval(input("INSERTE DONDE VA A COLOCAR LA FICHA --> "))
-
 		if disc > 0 and disc <= 7:	
 			disc = disc - 1
-
 			rows_count = len(self.array)
 			columns_count = len(self.array[0])
-
 			actualPosition = rows_count - 1
 			inserted = False
-
 			while actualPosition >= 0 :
 				if self.array[actualPosition][disc] == 0 and inserted == False:
 					self.array[actualPosition][disc] = 1
@@ -50,12 +25,9 @@ class GeneticConnect4(object):
 			print("Posición equivocada")
 			return self.insert_disc()
 
-
 	def print_grid(self):
-
 		rows_count = len(self.array)
 		columns_count = len(self.array[0])
-
 		print()
 		for i in range(rows_count):
 			row = ""
@@ -67,11 +39,8 @@ class GeneticConnect4(object):
 				else:
 					row = row + "2"
 			print("| " + row+ " |")
-
 		print("|_________|") 
-
 		print()
-
 		return 0
 
 
