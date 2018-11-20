@@ -1,5 +1,6 @@
+#Class that create a new generation inside the Connect 4
 class Generation(object):
-	"""docstring for Generation"""
+
 	def __init__(self, population):
 		super(Generation, self).__init__()
 		self.population = population
