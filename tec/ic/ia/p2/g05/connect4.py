@@ -7,27 +7,68 @@ class GeneticConnect4(object):
 		super(GeneticConnect4, self).__init__()
 		self.board_array = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
 		self.generation = "" #Insert and object of Generation(board_array)
+		self.player_one = ""
+		self.player_two = ""
+
+		return self.main_menu()
+
+	def set_player(self, player_one, player_two):
+		self.player_one = player_one
+		self.player_two = player_two
+		return 0
+
+	def main_menu(self):
+		print("**********************		CONNECT 4 GENÉTICO		**********************")
+		print()
+		print("		Tipos de juego: ")
+		print("		1. HUMANO - MÁQUINA")
+		print("		2. MÁQUINA - MÁQUINA")
+		print("")
+		game_type = eval(input("Defina el tipo de juego seleccionando un número de opción --> "))
+		if game_type == 1:
+			self.set_player("HUMANO", "MÁQUINA")
+		elif game_type == 2:
+			self.set_player("MÁQUINA 1", "MÁQUINA 2")
+		else:
+			print("Ingrese una opción correcta")
+			print()
+			return self.main_menu()
+		return self.insert_disc(self.player_one)
 
 	#Function that insert a disc inside the board
-	def insert_disc(self):
+	def insert_disc(self, player):
+		print()
+		print(" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ")
+		print()
 		self.print_board()
-		disc = eval(input("INSERTE DONDE VA A COLOCAR LA FICHA --> "))
-		if disc > 0 and disc <= 7:	
-			disc = disc - 1
+		print()
+		print("JUGADOR: " + player)
+		print()
+		position = eval(input("INSERTE DONDE VA A COLOCAR LA FICHA --> "))
+		disc_type = 0
+		next_player = "" 
+		if player == "HUMANO" or player == "MÁQUINA 1":
+			disc_type = 1
+			next_player = self.player_two
+		else:
+			disc_type = 2
+			next_player = self.player_one
+		if position > 0 and position <= 7:	
+			position = position - 1
 			rows_count = len(self.board_array)
 			columns_count = len(self.board_array[0])
 			actual_position = rows_count - 1
 			inserted = False
 			while actual_position >= 0 :
-				if self.board_array[actual_position][disc] == 0 and inserted == False:
-					self.board_array[actual_position][disc] = 1
+				if self.board_array[actual_position][position] == 0 and inserted == False:
+					self.board_array[actual_position][position] = disc_type
 					inserted = True
 				else:
 					actual_position -= 1
-			return self.insert_disc()
+			return self.insert_disc(next_player)
 		else:
 			print("Posición equivocada")
-			return self.insert_disc()
+			return self.insert_disc(next_player)
 
 	#Function that print the board
 	def print_board(self):
@@ -43,7 +84,7 @@ class GeneticConnect4(object):
 					row = row + "1"
 				else:
 					row = row + "2"
-			print("| " + row+ " |")
+			print("| " + row + " |")
 		print("|_________|") 
 		print()
 		return 0
