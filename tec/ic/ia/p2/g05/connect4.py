@@ -1,4 +1,4 @@
-
+import os
 #Class that implements the structure of the Connect4
 class GeneticConnect4(object):
 
@@ -9,7 +9,6 @@ class GeneticConnect4(object):
 		self.generation = "" #Insert and object of Generation(board_array)
 		self.player_one = ""
 		self.player_two = ""
-
 		return self.main_menu()
 
 	def set_player(self, player_one, player_two):
@@ -24,17 +23,18 @@ class GeneticConnect4(object):
 		print("		1. HUMANO - MÁQUINA")
 		print("		2. MÁQUINA - MÁQUINA")
 		print("")
-		game_type = eval(input("Defina el tipo de juego seleccionando un número de opción --> "))
-		if game_type == 1:
+		game_type = input("Defina el tipo de juego seleccionando un número de opción --> ")
+		if game_type == "1":
 			self.set_player("HUMANO", "MÁQUINA")
-		elif game_type == 2:
+		elif game_type == "2":
 			self.set_player("MÁQUINA 1", "MÁQUINA 2")
 		else:
 			print("Ingrese una opción correcta")
-			print()
+			input("Presione una tecla para continuar --> ")
+			os.system('clear')
 			return self.main_menu()
 		return self.insert_disc(self.player_one)
-
+			
 	#Function that insert a disc inside the board
 	def insert_disc(self, player):
 		print()
@@ -43,17 +43,19 @@ class GeneticConnect4(object):
 		self.print_board()
 		print()
 		print("JUGADOR: " + player)
-		print()
-		position = eval(input("INSERTE DONDE VA A COLOCAR LA FICHA --> "))
+		position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
 		disc_type = 0
+		actual_player = ""
 		next_player = "" 
 		if player == "HUMANO" or player == "MÁQUINA 1":
 			disc_type = 1
 			next_player = self.player_two
+			actual_player = self.player_one
 		else:
 			disc_type = 2
 			next_player = self.player_one
-		if position > 0 and position <= 7:	
+			actual_player = self.player_two
+		if position > 0 and position <= 7:
 			position = position - 1
 			rows_count = len(self.board_array)
 			columns_count = len(self.board_array[0])
@@ -68,10 +70,12 @@ class GeneticConnect4(object):
 			return self.insert_disc(next_player)
 		else:
 			print("Posición equivocada")
-			return self.insert_disc(next_player)
+			input("Presione una tecla para continuar --> ")
+			return self.insert_disc(actual_player)
 
 	#Function that print the board
 	def print_board(self):
+		os.system('clear')
 		rows_count = len(self.board_array)
 		columns_count = len(self.board_array[0])
 		print()
@@ -81,9 +85,9 @@ class GeneticConnect4(object):
 				if self.board_array[i][j] == 0:
 					row = row + " "
 				elif self.board_array[i][j] == 1:
-					row = row + "1"
+					row = row + "X"
 				else:
-					row = row + "2"
+					row = row + "O"
 			print("| " + row + " |")
 		print("|_________|") 
 		print()
