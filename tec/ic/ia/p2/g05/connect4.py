@@ -43,35 +43,41 @@ class GeneticConnect4(object):
 		self.print_board()
 		print()
 		print("JUGADOR: " + player)
-		position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
 		disc_type = 0
 		actual_player = ""
 		next_player = "" 
-		if player == "HUMANO" or player == "MÁQUINA 1":
-			disc_type = 1
-			next_player = self.player_two
-			actual_player = self.player_one
-		else:
-			disc_type = 2
-			next_player = self.player_one
-			actual_player = self.player_two
-		if position > 0 and position <= 7:
-			position = position - 1
-			rows_count = len(self.board_array)
-			columns_count = len(self.board_array[0])
-			actual_position = rows_count - 1
-			inserted = False
-			while actual_position >= 0 :
-				if self.board_array[actual_position][position] == 0 and inserted == False:
-					self.board_array[actual_position][position] = disc_type
-					inserted = True
-				else:
-					actual_position -= 1
-			return self.insert_disc(next_player)
-		else:
+		try:
+			position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
+			if player == "HUMANO" or player == "MÁQUINA 1":
+				disc_type = 1
+				next_player = self.player_two
+				actual_player = self.player_one
+			else:
+				disc_type = 2
+				next_player = self.player_one
+				actual_player = self.player_two
+			if position > 0 and position <= 7:
+				position = position - 1
+				rows_count = len(self.board_array)
+				columns_count = len(self.board_array[0])
+				actual_position = rows_count - 1
+				inserted = False
+				while actual_position >= 0 :
+					if self.board_array[actual_position][position] == 0 and inserted == False:
+						self.board_array[actual_position][position] = disc_type
+						inserted = True
+					else:
+						actual_position -= 1
+				return self.insert_disc(next_player)
+			else:
+				print("Posición equivocada")
+				input("Presione una tecla para continuar --> ")
+				return self.insert_disc(actual_player)
+		except Exception as e:
 			print("Posición equivocada")
 			input("Presione una tecla para continuar --> ")
 			return self.insert_disc(actual_player)
+
 
 	#Function that print the board
 	def print_board(self):

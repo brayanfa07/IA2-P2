@@ -23,6 +23,9 @@ Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genético
 
 ## 3. Estructura del Algoritmo Genético
 
+El algoritmo genético es el tipo de algoritmo de búsqueda y optimización para encontrar una solución a un problema utilizando los siguientes componentes:
+- Función objetivo (Fitness Function)
+
 
 ## 4. Algoritmo General de Juego
 
