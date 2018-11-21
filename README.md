@@ -24,7 +24,14 @@ Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genético
 ## 3. Estructura del Algoritmo Genético
 
 El algoritmo genético es el tipo de algoritmo de búsqueda y optimización para encontrar una solución a un problema utilizando los siguientes componentes:
+
+- Definición de población: Para crear la población se va a definir a los individuos,los cuales cada uno representa una solución potencial al problema.
+Cada individuo va estar conformado por *4 fichas*, que pueden representar una secuencia en línea que puede determinar un ganador al problema.
+Cada individuo se creará de forma aleatoria, según las fichas que se encuentren en el tablero.
 - Función objetivo (Fitness Function)
+- Cruce
+- Mutación
+- Selección
 
 
 ## 4. Algoritmo General de Juego
