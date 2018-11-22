@@ -37,7 +37,11 @@ En caso de no haber fichas sufientes en el tablero para completar un individuo o
 
 - Función objetivo (Fitness Function): Es la función que va a evaluar o devolver un valor objetivo que determina que tán óptimo es un individuo para una solución.
 - Cruce: Proceso por el cual se cruzan 2 individuos, con el fin de mejorar las características o genes de los mismos, y así adquirir un mejor valoor objetivo.
+
+Para este proyecto se utilizará el método de cruce simple de un sólo punto, en este caso, haciendo el corte en la mitad de los arreglos o individuos padres.
+
 - Mutación: Proceso por el cual se cambia un atributo del individuo, lo cual le da variabilidad en su valor objetivo.
+Para este método se cambiará de forma aleatoria un atributo del individuo. Al final se retornará una población con indivuos mutados.
 - Selección: Método en el que se seleccionan a los individuos que posean un valor de función objetivo elevado.
 
 

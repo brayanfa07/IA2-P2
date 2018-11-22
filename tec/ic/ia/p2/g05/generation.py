@@ -6,14 +6,23 @@ class Generation(object):
 		self.initial_population = []
 		return 0
 
-	def mutation(self):
-		#IMPLEMENT THE CODE
-		return 0		
+	def mutation(self, population):
+		row_size = len(population)
+		column_size = len(population[0])
+		mutated_population = []
+		for i in range(row_size):
+			position = random.randint(0, 3)
+			if population[i][position] == 1:
+				population[i][position] == 2:
+			else:
+				population[i][position] == 1:
+			mutated_population.append(population[i])
+		return mutated_population		
 
 
-	def crossover(self):
-		row_size = len(self.initial_population)
-		column_size = len(self.initial_population[0])
+	def crossover(self, population):
+		row_size = len(population)
+		column_size = len(population[0])
 		crossed_population = []
 		all_crossed = False
 		while all_crossed != True: 
@@ -23,10 +32,10 @@ class Generation(object):
 				while second_index != (row_size - 1):
 					temp_array = []
 					array_to_insert = []
-					array_to_insert.append(self.initial_population[first_index])
-					array_to_insert.append(self.initial_population[second_index])
-					temp_array.append(self.initial_population[first_index][2:3])
-					temp_array.append(self.initial_population[second_index][2:3])
+					array_to_insert.append(population[first_index])
+					array_to_insert.append(population[second_index])
+					temp_array.append(population[first_index][2:3])
+					temp_array.append(population[second_index][2:3])
 					array_to_insert[first_index][2:3] = temp_array[2:3]
 					array_to_insert[second_index][2:3] = temp_array[0:1]
 					first_index += 1
@@ -42,10 +51,10 @@ class Generation(object):
 						other_individual = random.randint(0, row_size - 2)
 						temp_array = []
 						array_to_insert = []
-						array_to_insert.append(self.initial_population[first_index])
-						array_to_insert.append(self.initial_population[other_individual])
-						temp_array.append(self.initial_population[first_index][2:3])
-						temp_array.append(self.initial_population[other_individual][2:3])
+						array_to_insert.append(population[first_index])
+						array_to_insert.append(population[other_individual])
+						temp_array.append(population[first_index][2:3])
+						temp_array.append(population[other_individual][2:3])
 						array_to_insert[first_index][2:3] = temp_array[2:3]
 						array_to_insert[other_individual][2:3] = temp_array[0:1]
 						first_index += 1
@@ -54,10 +63,10 @@ class Generation(object):
 					else:
 						temp_array = []
 						array_to_insert = []
-						array_to_insert.append(self.initial_population[first_index])
-						array_to_insert.append(self.initial_population[second_index])
-						temp_array.append(self.initial_population[first_index][2:3])
-						temp_array.append(self.initial_population[second_index][2:3])
+						array_to_insert.append(population[first_index])
+						array_to_insert.append(population[second_index])
+						temp_array.append(population[first_index][2:3])
+						temp_array.append(population[second_index][2:3])
 						array_to_insert[first_index][2:3] = temp_array[2:3]
 						array_to_insert[second_index][2:3] = temp_array[0:1]
 						crossed_population.append(array_to_insert[first_index])
