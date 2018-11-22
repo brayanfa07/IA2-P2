@@ -3,16 +3,69 @@ class Generation(object):
 
 	def __init__(self):
 		super(Generation, self).__init__()
-		self.population = []
+		self.initial_population = []
 		return 0
 
 	def mutation(self):
 		#IMPLEMENT THE CODE
 		return 0		
 
-	def crossing(self):
-		#IMPLEMENT THE CODE
-		return 0
+
+	def crossover(self):
+		row_size = len(self.initial_population)
+		column_size = len(self.initial_population[0])
+		crossed_population = []
+		all_crossed = False
+		while all_crossed != True: 
+			if row_size % 2 == 0:
+				first_index = 0
+				second_index = 1
+				while second_index != (row_size - 1):
+					temp_array = []
+					array_to_insert = []
+					array_to_insert.append(self.initial_population[first_index])
+					array_to_insert.append(self.initial_population[second_index])
+					temp_array.append(self.initial_population[first_index][2:3])
+					temp_array.append(self.initial_population[second_index][2:3])
+					array_to_insert[first_index][2:3] = temp_array[2:3]
+					array_to_insert[second_index][2:3] = temp_array[0:1]
+					first_index += 1
+					second_index += 1
+					crossed_population.append(array_to_insert[first_index])
+					crossed_population.append(array_to_insert[second_index])
+				all_crossed = True
+			else:
+				first_index = 0
+				second_index = 1
+				while first_index != (row_size - 1):
+					if first_index == (row_size - 1):
+						other_individual = random.randint(0, row_size - 2)
+						temp_array = []
+						array_to_insert = []
+						array_to_insert.append(self.initial_population[first_index])
+						array_to_insert.append(self.initial_population[other_individual])
+						temp_array.append(self.initial_population[first_index][2:3])
+						temp_array.append(self.initial_population[other_individual][2:3])
+						array_to_insert[first_index][2:3] = temp_array[2:3]
+						array_to_insert[other_individual][2:3] = temp_array[0:1]
+						first_index += 1
+						crossed_population.append(array_to_insert[first_index])
+						crossed_population.append(array_to_insert[second_index])
+					else:
+						temp_array = []
+						array_to_insert = []
+						array_to_insert.append(self.initial_population[first_index])
+						array_to_insert.append(self.initial_population[second_index])
+						temp_array.append(self.initial_population[first_index][2:3])
+						temp_array.append(self.initial_population[second_index][2:3])
+						array_to_insert[first_index][2:3] = temp_array[2:3]
+						array_to_insert[second_index][2:3] = temp_array[0:1]
+						crossed_population.append(array_to_insert[first_index])
+						crossed_population.append(array_to_insert[second_index])
+						first_index += 1
+						second_index += 1
+				all_crossed = True
+		return crossed_population
 
 	def selection(self):
 		#IMPLEMENT THE CODE
