@@ -29,7 +29,6 @@ Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genético
 
 
 
-
 ## 4. Estructura del Algoritmo Genético
 
 
@@ -44,13 +43,14 @@ En caso de no haber fichas sufientes en el tablero para completar un individuo o
 
 - Función objetivo (Fitness Function): Es la función que va a evaluar o devolver un valor objetivo que determina que tán óptimo es un individuo para una solución.
 
-Para la definición de la función objetivo, se establecerá una cantidad de porcentaje de acuerdo a la cantidad de elementos del mismo color que posea la secuencia.
+Para la definición de la función objetivo, se establecerá una cantidad de porcentaje de acuerdo a la cantidad de fichas deun símbolo establecido para dentro de la secuencia.
+En caso de que no se hayan fichas en el tablero, se asignará un porcentaje de 100%, lo cual indica que se podrá insertar una ficha en cualquier columna.
 - Cruce: Proceso por el cual se cruzan 2 individuos, con el fin de mejorar las características o genes de los mismos, y así adquirir un mejor valoor objetivo.
 
 Para este proyecto se utilizará el método de cruce simple de un sólo punto, en este caso, haciendo el corte en la mitad de los arreglos o individuos padres.
 
 - Mutación: Proceso por el cual se cambia un atributo del individuo, lo cual le da variabilidad en su valor objetivo.
-Para este método se cambiará de forma aleatoria un atributo del individuo. Al final se retornará una población con indivuos mutados.
+Para este método se cambiará de forma aleatoria un atributo del individuo. Al final se retornará una población con individuos mutados.
 - Selección: Método en el que se seleccionan a los individuos que posean un valor de función objetivo elevado.
 Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que tengan el mayor objetivo de fitness function, para que pasen a formar parte de la siguiente generación
 
@@ -64,6 +64,13 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 
 
 ## Referencias Bibliográficas
+
+Algoritmos Genéticos en Python - YouTube. (s. f.). Recuperado 22 de noviembre de 2018, de https://www.youtube.com/watch?v=yAqq-IuDbrQ
+
+Kordsmeier, D. A. (s. f.). Using Genetic Learning in Weight-Based Game AI, 25.
+
+Morrow-DeBell-Final-4-15-2010.pdf. (s. f.). Recuperado de https://www.wittenberg.edu/sites/default/files/media/computer_science/forms/Morrow-DeBell-Final-4-15-2010.pdf?fbclid=IwAR3a_CsmDLvbpAMpfRwa4dv4yV5oH47ToYwuBCE-d6400UOWdyjVGjSPcGc
+
 
 
 # Apéndice
