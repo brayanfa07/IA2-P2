@@ -22,6 +22,13 @@ class Generation(object):
 		#IMPLEMENT THE CODE	
 		return 0
 
-	def define_population(self):
-		#IMPLEMENT THE CODE
+	def define_population(self, board_array):
+		#IMPLEMENT THE CODE	
 		return 0
+
+	def search_inside_matrix(self, board_array):
+		matrix_empty = False
+		visited_array = []
+		if is_empty_matrix()
+
+

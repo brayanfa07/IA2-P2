@@ -1,4 +1,6 @@
 import os
+from generation import Generacion
+
 #Class that implements the structure of the Connect4
 class GeneticConnect4(object):
 
