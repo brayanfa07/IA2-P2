@@ -43,7 +43,7 @@ Para este proyecto se utilizará el método de cruce simple de un sólo punto, e
 - Mutación: Proceso por el cual se cambia un atributo del individuo, lo cual le da variabilidad en su valor objetivo.
 Para este método se cambiará de forma aleatoria un atributo del individuo. Al final se retornará una población con indivuos mutados.
 - Selección: Método en el que se seleccionan a los individuos que posean un valor de función objetivo elevado.
-
+Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que tengan el mayor objetivo de fitness function, para que pasen a formar parte de la siguiente generación
 
 ## 5. Algoritmo de detección de situaciones de gane
 
