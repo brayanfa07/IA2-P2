@@ -14,12 +14,29 @@ Enlace de GitHub: https://github.com/brayanfa07/IA2-P2
 ### II Semestre 2018
 
 Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genéticos
+
 ---
 
 ## 1. Introducción
 
 
 ## 2. Connect 4 Genético
+
+En este proyecto los estudiantes desarrollaran un agente que sepa jugar Connect 4 ( https://en.wikipedia.org/wiki/Connect_Four ) utilizando una combinación de técnicas de búsqueda.
+
+Los algoritmos utilizados se encargaran de resolver diferentes aspectos del juego. Se espera que los estudiantes logren entrenar agentes que puedan jugar Connect 4 interactivamente con un humano, con la mayor inteligencia posible. Una vez entrenados los agentes deberá ser
+posible establecer una sesión de juego humano vs máquina o máquina vs máquina, con una interfaz de consola sencilla.
+
+### Consideraciones generales de juego
+
+Cuando un humano juega Connect 4 intuitivamente trata de formar, filas, columnas y diagonales, un movimiento a la vez. Sin embargo, la pregunta de búsqueda detrás de este juego es, cuál es la secuencia de pasos que se deben efectuar para llegar a ganar?
+
+Por ejemplo, uno de los elementos más importantes es evitar que el oponente gane. Identificar cuál es el movimiento que se debe ejecutar para bloquear ese gane, de ser posible, es clave.
+
+De manera análoga, si el agente nada más necesita un movimiento más para ganar, debería detectarlo.
+Aparte de las situaciones claras de bloqueo o gane, cómo sabe un agente qué movimiento ejecutar que, idealmente, lo acerque a un estado que sea más cercano a tener 4 fichas en fila?
+
+Debería siempre tratar de hacer columnas? Siempre filas? Debería tratar de dejar espacios vacíos para engañar al oponente?
 
 
 
@@ -57,6 +74,8 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 ## 5. Algoritmo de detección de situaciones de gane
 
 
+
+
 ## 6. Algoritmo genético para optimizar parámetros de estrategia
 
 
@@ -65,11 +84,11 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 
 ## Referencias Bibliográficas
 
-Algoritmos Genéticos en Python - YouTube. (s. f.). Recuperado 22 de noviembre de 2018, de https://www.youtube.com/watch?v=yAqq-IuDbrQ
+- Algoritmos Genéticos en Python - YouTube. (s. f.). Recuperado 22 de noviembre de 2018, de https://www.youtube.com/watch?v=yAqq-IuDbrQ
 
-Kordsmeier, D. A. (s. f.). Using Genetic Learning in Weight-Based Game AI, 25.
+- Kordsmeier, D. A. (s. f.). Using Genetic Learning in Weight-Based Game AI, 25.
 
-Morrow-DeBell-Final-4-15-2010.pdf. (s. f.). Recuperado de https://www.wittenberg.edu/sites/default/files/media/computer_science/forms/Morrow-DeBell-Final-4-15-2010.pdf?fbclid=IwAR3a_CsmDLvbpAMpfRwa4dv4yV5oH47ToYwuBCE-d6400UOWdyjVGjSPcGc
+- Morrow-DeBell-Final-4-15-2010.pdf. (s. f.). Recuperado de https://www.wittenberg.edu/sites/default/files/media/computer_science/forms/Morrow-DeBell-Final-4-15-2010.pdf?fbclid=IwAR3a_CsmDLvbpAMpfRwa4dv4yV5oH47ToYwuBCE-d6400UOWdyjVGjSPcGc
 
 
 
