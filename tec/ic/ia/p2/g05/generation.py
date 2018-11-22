@@ -76,8 +76,8 @@ class Generation(object):
 				all_crossed = True
 		return crossed_population
 
-	def selection(self):
-		#IMPLEMENT THE CODE
+	def selection(self, population):
+		
 		return 0
 
 	def fitness_funtion(self):
