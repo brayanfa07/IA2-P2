@@ -13,7 +13,7 @@ class Generation(object):
 		for i in range(row_size):
 			position = random.randint(0, 3)
 			if population[i][position] == 1:
-				population[i][position] == 2:
+				population[i][position] == 2
 			else:
 				population[i][position] == 1:
 			mutated_population.append(population[i])

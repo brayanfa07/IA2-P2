@@ -1,5 +1,5 @@
 import os
-from generation import Generacion
+#from generation import Generacion
 
 #Class that implements the structure of the Connect4
 class GeneticConnect4(object):
@@ -19,7 +19,7 @@ class GeneticConnect4(object):
 		return 0
 
 	def main_menu(self):
-		print("**********************		CONNECT 4 GENÉTICO		**********************")
+		print("******** 	 CONNECT 4 GENÉTICO 	 **********")
 		print()
 		print("		Tipos de juego: ")
 		print("		1. HUMANO - MÁQUINA")
@@ -40,24 +40,25 @@ class GeneticConnect4(object):
 	#Function that insert a disc inside the board
 	def insert_disc(self, player):
 		print()
-		print(" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ")
+		print(" ++++++++++++++++++++++++++++++++++++++++++++ ")
 		print()
 		self.print_board()
 		print()
-		print("JUGADOR: " + player)
+		print("		JUGADOR: " + player)
+		print()
 		disc_type = 0
 		actual_player = ""
 		next_player = "" 
+		if player == "HUMANO" or player == "MÁQUINA 1":
+			disc_type = 1
+			next_player = self.player_two
+			actual_player = self.player_one
+		else:
+			disc_type = 2
+			next_player = self.player_one
+			actual_player = self.player_two
 		try:
 			position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
-			if player == "HUMANO" or player == "MÁQUINA 1":
-				disc_type = 1
-				next_player = self.player_two
-				actual_player = self.player_one
-			else:
-				disc_type = 2
-				next_player = self.player_one
-				actual_player = self.player_two
 			if position > 0 and position <= 7:
 				position = position - 1
 				rows_count = len(self.board_array)
@@ -87,16 +88,19 @@ class GeneticConnect4(object):
 		rows_count = len(self.board_array)
 		columns_count = len(self.board_array[0])
 		print()
+		print("		 1 2 3 4 5 6 7  ") 
+		print("		_______________") 
 		for i in range(rows_count):
 			row = ""
 			for j in range(columns_count):
 				if self.board_array[i][j] == 0:
-					row = row + " "
+					row = row + " |"
 				elif self.board_array[i][j] == 1:
-					row = row + "X"
+					row = row + "X|"
 				else:
-					row = row + "O"
-			print("| " + row + " |")
-		print("|_________|") 
+					row = row + "O|"
+			print("		|" + row)
+		print("		*************** ") 
+		print("		 1 2 3 4 5 6 7  ") 
 		print()
 		return 0

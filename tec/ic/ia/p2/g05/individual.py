@@ -5,6 +5,7 @@ class Individual(object):
 		self.disc_array = []
 		self.player_disc_initial_count = 0
 		self.fitness_value = 0
+		self.position_array = []
 
 	def set_disc_array(self, array):
 		self.disc_array = array
