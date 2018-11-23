@@ -84,11 +84,13 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 
 ## Referencias Bibliográficas
 
+- A Genetic Algorithm to Optimize a Connect Four Mini max Player.pdf. (s. f.). Recuperado de https://www.wittenberg.edu/sites/default/files/media/computer_science/forms/Morrow-DeBell-Final-4-15-2010.pdf?fbclid=IwAR3a_CsmDLvbpAMpfRwa4dv4yV5oH47ToYwuBCE-d6400UOWdyjVGjSPcGc
 - Algoritmos Genéticos en Python - YouTube. (s. f.). Recuperado 22 de noviembre de 2018, de https://www.youtube.com/watch?v=yAqq-IuDbrQ
-
 - Kordsmeier, D. A. (s. f.). Using Genetic Learning in Weight-Based Game AI, 25.
+- Pulido, H. (2017). Three Genetics Algorithm-Using Unity. C#. Recuperado de https://github.com/HectorPulido/Three-Genetics-Algorithm-Using-Unity (Original work published 2017)
+- ¿Qué es un algoritmo genético? - YouTube. (s. f.). Recuperado 23 de noviembre de 2018, de https://www.youtube.com/watch?v=Bhme3i8jHpU
+- Serna, L. A., Alberte, A. D., Málaga, R. O., & Ibáñez, A. R. (s. f.). Sistemas Informáticos, 163.
 
-- Morrow-DeBell-Final-4-15-2010.pdf. (s. f.). Recuperado de https://www.wittenberg.edu/sites/default/files/media/computer_science/forms/Morrow-DeBell-Final-4-15-2010.pdf?fbclid=IwAR3a_CsmDLvbpAMpfRwa4dv4yV5oH47ToYwuBCE-d6400UOWdyjVGjSPcGc
 
 
 
