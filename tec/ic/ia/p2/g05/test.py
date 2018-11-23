@@ -24,8 +24,13 @@ def matrix_is_empty():
 	return found
 
 def is_extreme(array, i, j):
+	is_extreme_value = True
+	if (i-1) >= 0:
+		if array[i-1][j] == 1 or array[i][j] == 2:
+			is_extreme_value = False
+			print("TIENE ELEMENTOS ARRIBA DE ÉL")
+	return is_extreme_value
 
-	return 0
 
 
 	
