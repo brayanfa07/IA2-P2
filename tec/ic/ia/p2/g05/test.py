@@ -1,6 +1,5 @@
 array=[[0,1,0,1,0],[1,1,1,0,0],[1,1,0,0,1],[0,0,1,1,0],[1,1,1,1,1]]
 
-
 def search_inside_matrix(number_to_search):
 	extremity_visited = []
 	row_size = len(array)
@@ -11,7 +10,8 @@ def search_inside_matrix(number_to_search):
 		for i in range(row_size):
 			for j in range(column_size):
 				if array[i][j] == number_to_search:
-					if is_extreme(array, i, j):  
+					if is_extreme(array, i, j):
+						is_have_more_elements(number_to_search, array ,i ,j):
 
 def matrix_is_empty():
 	row_size = len(array)
@@ -26,11 +26,54 @@ def matrix_is_empty():
 def is_extreme(array, i, j):
 	is_extreme_value = True
 	if (i-1) >= 0:
-		if array[i-1][j] == 1 or array[i][j] == 2:
+		if array[i-1][j] == 0 or array[i][j] == 0:
+			is_extreme_value = True
+			print("Es extremo hacia arriba")
+		elif array[i-1][j-1] == 0 or array[i-1][j+1] == 0:
+			is_extreme_value = True
+			print("Es extremo en diagonal")
+		else:
 			is_extreme_value = False
-			print("TIENE ELEMENTOS ARRIBA DE ÉL")
 	return is_extreme_value
 
+def is_have_more_elements(number_to_search, array, i, j):
+	equal_symbol = False
+	before_position = j-1
+	after_position = j+1
+	under_position = i+1
+	if array[i][before_position] == number_to_search or array[i][after_position] == number_to_search
+		equal_symbol = True
+	elif array[under_position][j] == number_to_search:
+		equal_symbol = True
+	elif array[under_position][before_position] == number_to_search or array[under_position][after_position] == number_to_search:
+		equal_symbol = True
+	else:
+		equal_symbol = False
+	return equal_symbol
 
-
-	
+def count_same_symbols(number_to_search, array, i, j):
+	equal_symbol = True
+	before_position = j-1
+	after_position = j+1
+	under_position = i+1
+	while equal_symbol != False:
+		if array[i][before_position] == number_to_search:
+			equal_symbol = True
+			before_position += 1
+		elif array[i][after_position] == number_to_search:
+			equal_symbol = True
+			after_position += 1
+		elif array[under_position][j] == number_to_search:
+			equal_symbol = True
+			under_position += 1
+		elif array[under_position][before_position] == number_to_search:
+			equal_symbol = True
+			under_position += 1
+			before_position += 1
+		elif array[under_position][after_position] == number_to_search:
+			equal_symbol = True
+			under_position += 1
+			after_position += 1
+		else:
+			equal_symbol = False
+	return equal_symbol
