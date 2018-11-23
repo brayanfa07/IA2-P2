@@ -11,7 +11,7 @@ def search_inside_matrix(number_to_search):
 		for i in range(row_size):
 			for j in range(column_size):
 				if array[i][j] == number_to_search:
-					if is_diagonal(array, i, j) ==  
+					if is_extreme(array, i, j):  
 
 def matrix_is_empty():
 	row_size = len(array)
@@ -22,6 +22,10 @@ def matrix_is_empty():
 			if array[i][j] == 1 or array[i][j] == 2:
 				found = True
 	return found
+
+def is_extreme(array, i, j):
+
+	return 0
 
 
 	
