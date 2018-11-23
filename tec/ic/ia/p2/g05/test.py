@@ -4,6 +4,7 @@ def search_inside_matrix(number_to_search):
 	extremity_visited = []
 	row_size = len(array)
 	column_size = len(array[0])
+	direction = ""
 	if matrix_is_empty():
 		print("Se pueden crear nuevos individuos desde cero")
 	else:
@@ -11,7 +12,18 @@ def search_inside_matrix(number_to_search):
 			for j in range(column_size):
 				if array[i][j] == number_to_search:
 					if is_extreme(array, i, j):
-						is_have_more_elements(number_to_search, array ,i ,j):
+						if is_have_more_elements(number_to_search, array ,i ,j):
+							if count_same_symbols(number_to_search, "left", array, i, j) > 0:
+								count_same_symbols(number_to_search, "left", array, i, j)
+							elif count_same_symbols(number_to_search, "right", array, i, j) > 0:
+								count_same_symbols(number_to_search, "right", array, i, j)
+							elif count_same_symbols(number_to_search, "down", array, i, j) > 0:
+								count_same_symbols(number_to_search, "down", array, i, j)
+							elif count_same_symbols(number_to_search, "down-left", array, i, j) > 0:
+								count_same_symbols(number_to_search, "down-left", array, i, j)
+							elif count_same_symbols(number_to_search, "down-right", array, i, j) > 0:
+								count_same_symbols(number_to_search, "down-right", array, i, j)
+			
 
 def matrix_is_empty():
 	row_size = len(array)
@@ -51,29 +63,40 @@ def is_have_more_elements(number_to_search, array, i, j):
 		equal_symbol = False
 	return equal_symbol
 
-def count_same_symbols(number_to_search, array, i, j):
+def count_same_symbols(number_to_search, direction, array, i, j):
 	equal_symbol = True
 	before_position = j-1
 	after_position = j+1
 	under_position = i+1
+	count_symbol = 0
 	while equal_symbol != False:
-		if array[i][before_position] == number_to_search:
-			equal_symbol = True
-			before_position += 1
-		elif array[i][after_position] == number_to_search:
-			equal_symbol = True
-			after_position += 1
-		elif array[under_position][j] == number_to_search:
-			equal_symbol = True
-			under_position += 1
-		elif array[under_position][before_position] == number_to_search:
-			equal_symbol = True
-			under_position += 1
-			before_position += 1
-		elif array[under_position][after_position] == number_to_search:
-			equal_symbol = True
-			under_position += 1
-			after_position += 1
+		if direction == "left":
+			if array[i][before_position] == number_to_search:
+				equal_symbol = True
+				before_position += 1
+				count_symbol += 1
+		elif direction == "right":		
+			if array[i][after_position] == number_to_search:
+				equal_symbol = True
+				after_position += 1
+				count_symbol += 1
+		elif direction == "down":
+			if array[under_position][j] == number_to_search:
+				equal_symbol = True
+				under_position += 1
+				count_symbol += 1
+		elif direction == "down-left":
+			if array[under_position][before_position] == number_to_search:
+				equal_symbol = True
+				under_position += 1
+				before_position += 1
+				count_symbol += 1
+		elif direction == "down-right":
+			if array[under_position][after_position] == number_to_search:
+				equal_symbol = True
+				under_position += 1
+				after_position += 1
+				count_symbol += 1
 		else:
 			equal_symbol = False
-	return equal_symbol
+	return count_symbol
