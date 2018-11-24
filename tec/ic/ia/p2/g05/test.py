@@ -203,9 +203,18 @@ def search_array(general_array, array_to_search):
 	else:
 		return False
 
+def random_direction():
+	direction_array = ["vertical", "horizontal", "left-diagonal", "right-diagonal"]
+	index = random.randint(0, len(direction_array))
+	return direction_array[index]
+
 def random_number():
 	value = random.randint(1,2)
 	print(value)
+
+
+
+
 
 array1 = [[1,2,3],[4,5,6]]
 
