@@ -1,4 +1,5 @@
 array=[[0,0,0,1,0],[0,0,1,0,0],[0,1,0,0,0],[1,0,0,1,0],[1,0,0,1,0]]
+direction_array = ["vertical", "horizontal", "left-diagonal", "right-diagonal"]
 
 """
 def search_inside_matrix(number_to_search):
@@ -175,4 +176,5 @@ def win_left_diagonal(array, number_to_search):
 		pos_in_row += 1
 	return win_value
 
-win_left_diagonal(array, 1)
+def generate_random_individual():
+	
