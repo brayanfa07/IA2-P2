@@ -178,7 +178,7 @@ def win_left_diagonal(array, number_to_search):
 		pos_in_row += 1
 	return win_value
 
-def generate_individual_array(arry):
+def generate_individual_array():
 	individual_array = []
 	count = 0
 	while count < 4:
@@ -186,11 +186,27 @@ def generate_individual_array(arry):
 		count += 1
 	return individual_array
 
-def generate_direction(array):
-	
+def generate_random_poblation():
+	random_poblation = []
+	count = 0
+	while count < 10:
+		individual = generate_individual_array()
+		if individual not in random_poblation:
+			random_poblation.append(individual)
+			count += 1
+	print(random_poblation)
+
+def search_array(general_array, array_to_search):
+	if array_to_search in general_array:
+		print("True")
+		return True
+	else:
+		return False
 
 def random_number():
 	value = random.randint(1,2)
 	print(value)
 
-random_number()
+array1 = [[1,2,3],[4,5,6]]
+
+generate_random_poblation()
