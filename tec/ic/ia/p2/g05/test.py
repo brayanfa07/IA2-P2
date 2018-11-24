@@ -205,17 +205,50 @@ def search_array(general_array, array_to_search):
 
 def random_direction():
 	direction_array = ["vertical", "horizontal", "left-diagonal", "right-diagonal"]
-	index = random.randint(0, len(direction_array))
+	index = random.randint(0, len(direction_array) -1)
+	print(direction_array[index])
 	return direction_array[index]
 
 def random_number():
 	value = random.randint(1,2)
 	print(value)
 
+def generate_population(array):
+	if matrix_is_empty():
+		return generate_random_poblation()
+	else:
+		count = 0
+		while count < 10:
+			row_size = len(array)
+			column_size = len(array[0])
+			pos_in_row = 0
+			pos_in_column = 0
+			win_value = False
+			direction = random_direction()
+			if direction == "vertical":
+				if pos_in_row == (row_size - 1) and (array[pos_in_row][pos_in_column] != 0)
+			elif direction == "horizontal":
+
+			elif direction == "left-diagonal"
+
+			else:
 
 
+
+
+
+			while (pos_in_row < row_size):
+				while (pos_in_column + 2) < column_size:
+					if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row][pos_in_column +1] == number_to_search) and (array[pos_in_row][pos_in_column + 2] == number_to_search) and (array[pos_in_row][pos_in_column + 3] == number_to_search):
+						win_value = True
+						return win_value
+					else:
+						pos_in_column += 1
+				pos_in_column = 0
+				pos_in_row += 1
+			return win_value			
 
 
 array1 = [[1,2,3],[4,5,6]]
 
-generate_random_poblation()
+random_direction()
