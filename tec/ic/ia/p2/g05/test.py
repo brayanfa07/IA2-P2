@@ -186,7 +186,7 @@ def generate_individual_array():
 		count += 1
 	return individual_array
 
-def generate_random_poblation():
+def generate_random_population():
 	random_poblation = []
 	count = 0
 	while count < 10:
@@ -223,12 +223,82 @@ def generate_population(array):
 			column_size = len(array[0])
 			pos_in_row = 0
 			pos_in_column = 0
-			win_value = False
 			direction = random_direction()
 			if direction == "vertical":
-				if pos_in_row == (row_size - 1) and (array[pos_in_row][pos_in_column] != 0)
+				if is_extreme(array, pos_in_row, pos_in_column):
+					if pos_in_row == (row_size - 1):
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0):
+								temp_array = [(array[pos_in_row][pos_in_column])]
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1
+					elif pos_in_row == row_size - 2:
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0):
+								temp_array.append([(array[pos_in_row][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1
+					elif pos_in_row == row_size - 3:
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0) and ((array[pos_in_row + 2][pos_in_column] != 0)):
+								temp_array.append([(array[pos_in_row][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 2][pos_in_column])])
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1		
+					else:
+						pos_in_row += 1
+					pos_in_row = 0
+					pos_in_column = 0
+				else:
+					print("NO es un extremo")
 			elif direction == "horizontal":
-
+				if is_extreme(array, pos_in_row, pos_in_column):
+					if pos_in_row == (row_size - 1):
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0):
+								temp_array = [(array[pos_in_row][pos_in_column])]
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1
+					elif pos_in_row == row_size - 2:
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0):
+								temp_array.append([(array[pos_in_row][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1
+					elif pos_in_row == row_size - 3:
+						while (pos_in_column) < column_size:
+							temp_array = []
+							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0) and ((array[pos_in_row + 2][pos_in_column] != 0)):
+								temp_array.append([(array[pos_in_row][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
+								temp_array.append([(array[pos_in_row + 2][pos_in_column])])
+								complete_array(temp_array)
+								pos_in_column += 1
+							else:
+								pos_in_column += 1		
+					else:
+						pos_in_row += 1
+					pos_in_row = 0
+					pos_in_column = 0
+				else:
 			elif direction == "left-diagonal"
 
 			else:
@@ -237,16 +307,7 @@ def generate_population(array):
 
 
 
-			while (pos_in_row < row_size):
-				while (pos_in_column + 2) < column_size:
-					if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row][pos_in_column +1] == number_to_search) and (array[pos_in_row][pos_in_column + 2] == number_to_search) and (array[pos_in_row][pos_in_column + 3] == number_to_search):
-						win_value = True
-						return win_value
-					else:
-						pos_in_column += 1
-				pos_in_column = 0
-				pos_in_row += 1
-			return win_value			
+		
 
 
 array1 = [[1,2,3],[4,5,6]]
