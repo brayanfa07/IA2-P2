@@ -18,7 +18,7 @@ class Generation(object):
 				population[i][position] == 1:
 			mutated_population.append(population[i])
 		return mutated_population		
-
+		
 
 	def crossover(self, population):
 		row_size = len(population)

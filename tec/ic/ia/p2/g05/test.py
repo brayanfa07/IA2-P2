@@ -1,5 +1,6 @@
-array=[[0,1,0,1,0],[1,1,1,0,0],[1,1,0,0,1],[0,0,1,1,0],[1,1,1,1,1]]
+array=[[0,0,0,1,0],[0,0,1,0,0],[0,1,0,0,0],[1,0,0,1,0],[1,0,0,1,0]]
 
+"""
 def search_inside_matrix(number_to_search):
 	extremity_visited = []
 	row_size = len(array)
@@ -23,7 +24,12 @@ def search_inside_matrix(number_to_search):
 								count_same_symbols(number_to_search, "down-left", array, i, j)
 							elif count_same_symbols(number_to_search, "down-right", array, i, j) > 0:
 								count_same_symbols(number_to_search, "down-right", array, i, j)
-			
+						else:
+							print("El elemento es único")
+						#Agregar al arreglo de visitados
+					else:
+						print("")
+"""
 
 def matrix_is_empty():
 	row_size = len(array)
@@ -53,7 +59,7 @@ def is_have_more_elements(number_to_search, array, i, j):
 	before_position = j-1
 	after_position = j+1
 	under_position = i+1
-	if array[i][before_position] == number_to_search or array[i][after_position] == number_to_search
+	if array[i][before_position] == number_to_search or array[i][after_position] == number_to_search:
 		equal_symbol = True
 	elif array[under_position][j] == number_to_search:
 		equal_symbol = True
@@ -100,3 +106,73 @@ def count_same_symbols(number_to_search, direction, array, i, j):
 		else:
 			equal_symbol = False
 	return count_symbol
+
+def win_row(array, number_to_search):
+	row_size = len(array)
+	column_size = len(array[0])
+	pos_in_row = 0
+	pos_in_column = 0
+	win_value = False
+	while (pos_in_row < row_size):
+		while (pos_in_column + 3) < column_size:
+			if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row][pos_in_column +1] == number_to_search) and (array[pos_in_row][pos_in_column + 2] == number_to_search) and (array[pos_in_row][pos_in_column + 3] == number_to_search):
+				win_value = True
+				return win_value
+			else:
+				pos_in_column += 1
+		pos_in_column = 0
+		pos_in_row += 1
+	return win_value
+
+def win_column(array, number_to_search):
+	row_size = len(array)
+	column_size = len(array[0])
+	pos_in_row = 0
+	pos_in_column = 0
+	win_value = False
+	while pos_in_column < column_size:
+		while (pos_in_row + 3 ) < row_size:
+			if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row + 1][pos_in_column] == number_to_search) and (array[pos_in_row + 2][pos_in_column] == number_to_search) and (array[pos_in_row + 3][pos_in_column] == number_to_search):
+				win_value = True
+				return win_value
+			else:
+				pos_in_row += 1
+		pos_in_row = 0
+		pos_in_column += 1
+	return win_value
+
+def win_right_diagonal(array, number_to_search):
+	row_size = len(array)
+	column_size = len(array[0])
+	pos_in_row = 0
+	pos_in_column = 0
+	win_value = False
+	while (pos_in_column + 3) < column_size:
+		while (pos_in_row + 3 ) < row_size:
+			if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row + 1][pos_in_column + 1] == number_to_search) and (array[pos_in_row + 2][pos_in_column + 2] == number_to_search) and (array[pos_in_row + 3][pos_in_column + 3] == number_to_search):
+				win_value = True
+				return win_value
+			else:
+				pos_in_row += 1
+		pos_in_row = 0
+		pos_in_column += 1
+	return win_value
+
+def win_left_diagonal(array, number_to_search):
+	row_size = len(array)
+	column_size = len(array[0])
+	pos_in_row = 0
+	pos_in_column = 3
+	win_value = False
+	while (pos_in_row + 3) < row_size:
+		while (pos_in_column < column_size):
+			if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row + 1][pos_in_column - 1] == number_to_search) and (array[pos_in_row + 2][pos_in_column - 2] == number_to_search) and (array[pos_in_row + 3][pos_in_column - 3] == number_to_search):
+				win_value = True
+				return win_value
+			else:
+				pos_in_column += 1
+		pos_in_column = 3
+		pos_in_row += 1
+	return win_value
+
+win_left_diagonal(array, 1)
