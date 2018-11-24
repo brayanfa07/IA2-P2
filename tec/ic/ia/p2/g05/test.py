@@ -1,3 +1,5 @@
+import random
+
 array=[[0,0,0,1,0],[0,0,1,0,0],[0,1,0,0,0],[1,0,0,1,0],[1,0,0,1,0]]
 direction_array = ["vertical", "horizontal", "left-diagonal", "right-diagonal"]
 
@@ -176,5 +178,19 @@ def win_left_diagonal(array, number_to_search):
 		pos_in_row += 1
 	return win_value
 
-def generate_random_individual():
+def generate_individual_array(arry):
+	individual_array = []
+	count = 0
+	while count < 4:
+		individual_array.append(random.randint(1,2))
+		count += 1
+	return individual_array
+
+def generate_direction(array):
 	
+
+def random_number():
+	value = random.randint(1,2)
+	print(value)
+
+random_number()
