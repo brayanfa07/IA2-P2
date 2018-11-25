@@ -215,7 +215,7 @@ def random_number():
 
 def generate_population(array):
 	if matrix_is_empty():
-		return generate_random_poblation()
+		return generate_random_population()
 	else:
 		count = 0
 		while count < 10:
@@ -245,7 +245,7 @@ def generate_population(array):
 								pos_in_column += 1
 							else:
 								pos_in_column += 1
-					elif pos_in_row == row_size - 3:
+					elif pos_in_row <= row_size - 3:
 						while (pos_in_column) < column_size:
 							temp_array = []
 							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0) and ((array[pos_in_row + 2][pos_in_column] != 0)):
@@ -264,41 +264,9 @@ def generate_population(array):
 					print("NO es un extremo")
 			elif direction == "horizontal":
 				if is_extreme(array, pos_in_row, pos_in_column):
-					if pos_in_row == (row_size - 1):
-						while (pos_in_column) < column_size:
-							temp_array = []
-							if (array[pos_in_row][pos_in_column] != 0):
-								temp_array = [(array[pos_in_row][pos_in_column])]
-								complete_array(temp_array)
-								pos_in_column += 1
-							else:
-								pos_in_column += 1
-					elif pos_in_row == row_size - 2:
-						while (pos_in_column) < column_size:
-							temp_array = []
-							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0):
-								temp_array.append([(array[pos_in_row][pos_in_column])])
-								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
-								complete_array(temp_array)
-								pos_in_column += 1
-							else:
-								pos_in_column += 1
-					elif pos_in_row == row_size - 3:
-						while (pos_in_column) < column_size:
-							temp_array = []
-							if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row + 1][pos_in_column] != 0) and ((array[pos_in_row + 2][pos_in_column] != 0)):
-								temp_array.append([(array[pos_in_row][pos_in_column])])
-								temp_array.append([(array[pos_in_row + 1][pos_in_column])])
-								temp_array.append([(array[pos_in_row + 2][pos_in_column])])
-								complete_array(temp_array)
-								pos_in_column += 1
-							else:
-								pos_in_column += 1		
-					else:
-						pos_in_row += 1
-					pos_in_row = 0
-					pos_in_column = 0
-				else:
+					while pos_in_column <= (column_size - 4):
+						
+
 			elif direction == "left-diagonal"
 
 			else:
