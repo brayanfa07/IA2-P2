@@ -1,5 +1,5 @@
 import os
-#from generation import Generacion
+from generation import Generation
 
 #Class that implements the structure of the Connect4
 class GeneticConnect4(object):
@@ -8,7 +8,6 @@ class GeneticConnect4(object):
 	def __init__(self):
 		super(GeneticConnect4, self).__init__()
 		self.board_array = [[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0],[0,0,0,0,0,0,0]]
-		self.generation = "" #Insert and object of Generation(board_array)
 		self.player_one = ""
 		self.player_two = ""
 		return self.main_menu()
@@ -57,30 +56,34 @@ class GeneticConnect4(object):
 			disc_type = 2
 			next_player = self.player_one
 			actual_player = self.player_two
-		try:
-			position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
-			if position > 0 and position <= 7:
-				position = position - 1
-				rows_count = len(self.board_array)
-				columns_count = len(self.board_array[0])
-				actual_position = rows_count - 1
-				inserted = False
-				while actual_position >= 0 :
-					if self.board_array[actual_position][position] == 0 and inserted == False:
-						self.board_array[actual_position][position] = disc_type
-						inserted = True
-					else:
-						actual_position -= 1
-				return self.insert_disc(next_player)
-			else:
+		if player == "HUMANO":
+			try:
+				position = eval(input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
+				if position > 0 and position <= 7:
+					position = position - 1
+					rows_count = len(self.board_array)
+					columns_count = len(self.board_array[0])
+					actual_position = rows_count - 1
+					inserted = False
+					while actual_position >= 0:
+						if self.board_array[actual_position][position] == 0 and inserted == False:
+							self.board_array[actual_position][position] = disc_type
+							inserted = True
+						else:
+							actual_position -= 1
+					return insert_disc(next_player)
+				else:
+					print("Posición equivocada")
+					input("Presione una tecla para continuar --> ")
+					return self.insert_disc(actual_player)
+			except Exception as e:
 				print("Posición equivocada")
 				input("Presione una tecla para continuar --> ")
 				return self.insert_disc(actual_player)
-		except Exception as e:
-			print("Posición equivocada")
-			input("Presione una tecla para continuar --> ")
-			return self.insert_disc(actual_player)
-
+		else:
+			generation = Generation(self.board_array, disc_type)
+			self.board_array = generation.execute_generation()
+			insert_disc(next_player)
 
 	#Function that print the board
 	def print_board(self):

@@ -5,4 +5,3 @@ def main():
 	#new_game.insert_disc()
 
 main()
-
