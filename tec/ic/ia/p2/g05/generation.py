@@ -5,6 +5,7 @@ INDIVUALS_NEXT_GENERATION = 10
 
 # Class that create a new generation inside the Connect 4
 
+
 class Generation:
 
     def __init__(self, board_array, disc_type):
@@ -101,24 +102,32 @@ class Generation:
         # IMPLEMENT THE CODE
         return 0
 
+    #REVISADO
     def matrix_is_empty(self):
-        row_size = len(array)
-        column_size = len(array[0])
-        found = False
+        row_size = len(self.array)
+        column_size = len(self.array[0])
+        found = True
         for i in range(row_size):
             for j in range(column_size):
-                if array[i][j] == 1 or array[i][j] == 2:
-                    found = True
+                if self.array[i][j] == 1 or self.array[i][j] == 2:
+                    found = False
         return found
 
+    #Revisado
     def is_extreme(self, array, i, j):
         is_extreme_value = True
-        if (i - 1) >= 0:
-            if array[i - 1][j] == 0 or array[i][j] == 0:
+        if (i - 1) >= 0 and j < len(array[0]):                
+            print(i, " i1")
+            print(j, " j1")
+            if array[i - 1][j] == 0:
                 is_extreme_value = True
+                print(i, " i2")
+                print(j, " j2")
                 print("Es extremo hacia arriba")
             elif array[i - 1][j - 1] == 0 or array[i - 1][j + 1] == 0:
                 is_extreme_value = True
+                print(i, " i3")
+                print(j, " j3")
                 print("Es extremo en diagonal")
             else:
                 is_extreme_value = False
@@ -180,6 +189,7 @@ class Generation:
                 equal_symbol = False
         return count_symbol
 
+    #Revisado
     def win_row(self, array, number_to_search):
         row_size = len(array)
         column_size = len(array[0])
@@ -188,10 +198,10 @@ class Generation:
         win_value = False
         while (pos_in_row < row_size):
             while (pos_in_column + 3) < column_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row][pos_in_column +1] == number_to_search) 
-                		and (array[pos_in_row][pos_in_column +2] == number_to_search) 
-                		and (array[pos_in_row][pos_in_column +3] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row][pos_in_column +
+                        1] == number_to_search) and (array[pos_in_row][pos_in_column +
+                        2] == number_to_search) and (array[pos_in_row][pos_in_column +
+                        3] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -200,6 +210,7 @@ class Generation:
             pos_in_row += 1
         return win_value
 
+    #Revisado
     def win_column(self, array, number_to_search):
         row_size = len(array)
         column_size = len(array[0])
@@ -208,10 +219,10 @@ class Generation:
         win_value = False
         while pos_in_column < column_size:
             while (pos_in_row + 3) < row_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row + 1][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row + 2][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row + 3][pos_in_column] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
+                        1][pos_in_column] == number_to_search) and (array[pos_in_row +
+                        2][pos_in_column] == number_to_search) and (array[pos_in_row +
+                        3][pos_in_column] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -220,6 +231,7 @@ class Generation:
             pos_in_column += 1
         return win_value
 
+    #Revisado
     def win_right_diagonal(self, array, number_to_search):
         row_size = len(array)
         column_size = len(array[0])
@@ -228,10 +240,10 @@ class Generation:
         win_value = False
         while (pos_in_column + 3) < column_size:
             while (pos_in_row + 3) < row_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row + 1][pos_in_column + 1] == number_to_search) 
-                		and (array[pos_in_row + 2][pos_in_column + 2] == number_to_search) 
-                		and (array[pos_in_row + 3][pos_in_column + 3] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
+                        1][pos_in_column + 1] == number_to_search) and (array[pos_in_row +
+                        2][pos_in_column + 2] == number_to_search) and (array[pos_in_row +
+                        3][pos_in_column + 3] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -240,6 +252,7 @@ class Generation:
             pos_in_column += 1
         return win_value
 
+    #Revisado
     def win_left_diagonal(self, array, number_to_search):
         row_size = len(array)
         column_size = len(array[0])
@@ -248,18 +261,19 @@ class Generation:
         win_value = False
         while (pos_in_row + 3) < row_size:
             while (pos_in_column < column_size):
-                if (array[pos_in_row][pos_in_column] == number_to_search) 
-                		and (array[pos_in_row + 1][pos_in_column - 1] == number_to_search) 
-                		and (array[pos_in_row + 2][pos_in_column - 2] == number_to_search) 
-                		and (array[pos_in_row + 3][pos_in_column - 3] == number_to_search):
-                    win_value = True
-                    return win_value
+                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
+                        1][pos_in_column - 1] == number_to_search) and (array[pos_in_row +
+                        2][pos_in_column - 2] == number_to_search) and (array[pos_in_row +
+                        3][pos_in_column - 3] == number_to_search):
+                       win_value = True
+                       return win_value
                 else:
                     pos_in_column += 1
             pos_in_column = 3
             pos_in_row += 1
         return win_value
 
+    #Revisado
     def generate_individual_array(self):
         individual_array = []
         count = 0
@@ -268,15 +282,16 @@ class Generation:
             count += 1
         return individual_array
 
+    #REVISADO
     def generate_random_population(self):
         random_poblation = []
         count = 0
         while count < 10:
-            individual = generate_individual_array()
+            individual = self.generate_individual_array()
             if individual not in random_poblation:
                 random_poblation.append(individual)
                 count += 1
-        print(random_poblation)
+        return random_poblation
 
     def search_array(self, general_array, array_to_search):
         if array_to_search in general_array:
@@ -286,104 +301,100 @@ class Generation:
             return False
 
     def random_direction(self):
-        direction_array = ["vertical", "horizontal",
-                           "left-diagonal", "right-diagonal"]
+        direction_array = ["vertical", "horizontal"]
+        """,
+                           left-diagonal", "right-diagonal"""
         index = random.randint(0, len(direction_array) - 1)
         print(direction_array[index])
-        return direction_array[index]
+        return direction_array[0]
 
     def random_number(self):
         value = random.randint(1, 2)
         return value
 
+    #REVISADO (ESTA PARTE)
     def generate_population(self, array):
-        if self.matrix_is_empty():
+        new_population = []
+        if self.matrix_is_empty() == True:
             return self.generate_random_population()
         else:
             count = 0
             while count < 10:
                 row_size = len(array)
                 column_size = len(array[0])
-                pos_in_row = 0
+                pos_in_row = row_size - 1
                 pos_in_column = 0
-                direction = random_direction()
-                if direction == "vertical":
-                    if is_extreme(array, pos_in_row, pos_in_column):
-                        if pos_in_row == (row_size - 1):
-                            while (pos_in_column) < column_size:
-                                temp_array = []
-                                if (array[pos_in_row][pos_in_column] != 0):
-                                    temp_array = [
-                                        (array[pos_in_row][pos_in_column])]
-                                    complete_array(temp_array)
-                                    pos_in_column += 1
+                while count < 10:
+                    while pos_in_row > 0:
+                        while pos_in_column < column_size:
+                            temp_array = []
+                            visited_extreme = False
+                            if is_extreme(array, i, j):
+                                visited_extreme = True
+                                if array[pos_in_row][pos_in_column] != 0:
+                                    temp_array.append(array[pos_in_row][pos_in_column])
+                                    pos_in_row -= 1
                                 else:
-                                    pos_in_column += 1
-                        elif pos_in_row == row_size - 2:
-                            while (pos_in_column) < column_size:
-                                temp_array = []
-                                if (array[pos_in_row][pos_in_column] != 0) and (
-                                        array[pos_in_row + 1][pos_in_column] != 0):
-                                    temp_array.append(
-                                        [(array[pos_in_row][pos_in_column])])
-                                    temp_array.append(
-                                        [(array[pos_in_row + 1][pos_in_column])])
-                                    complete_array(temp_array)
-                                    pos_in_column += 1
+                                	pos_in_column += 1
+                            elif visited_extreme = True and pos_in_row  < row_size - 1:
+                            	if array[pos_in_row][pos_in_column] != 0:
+                                    temp_array.append(array[pos_in_row][pos_in_column])
                                 else:
-                                    pos_in_column += 1
-                        elif pos_in_row <= row_size - 3:
-                            while (pos_in_column) < column_size:
-                                temp_array = []
-                                if (array[pos_in_row][pos_in_column] != 0) 
-                                		and (array[pos_in_row + 1][pos_in_column] != 0) 
-                                		and ((array[pos_in_row + 2][pos_in_column] != 0)):
-                                    temp_array.append(
-                                        [(array[pos_in_row][pos_in_column])])
-                                    temp_array.append(
-                                        [(array[pos_in_row + 1][pos_in_column])])
-                                    temp_array.append(
-                                        [(array[pos_in_row + 2][pos_in_column])])
-                                    complete_array(temp_array)
-                                    pos_in_column += 1
-                                else:
-                                    pos_in_column += 1
-                        else:
-                            pos_in_row += 1
-                        pos_in_row = 0
-                        pos_in_column = 0
-                    else:
-                        print("NO es un extremo")
+                                	pos_in_column += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                """
                 elif direction == "horizontal":
-                    if is_extreme(array, pos_in_row, pos_in_column):
+                    if self.is_extreme(array, pos_in_row, pos_in_column):
                         while pos_in_column <= (column_size - 4):
                             temp_array = []
                             if pos_in_row != row_size - 1:
-                                if (array[pos_in_row][pos_in_column] != 0) 
-                                    	and (array[pos_in_row][pos_in_column + 1] != 0)
-                                    	and (array[pos_in_row][pos_in_column + 2] != 0) 
-                                    	and (array[pos_in_row][pos_in_column + 3] == 0) 
-                                    	and (array[pos_in_row + 1][pos_in_column] != 0) 
-                                    	and (array[pos_in_row + 1][pos_in_column + 1] != 0) 
-                                    	and (array[pos_in_row + 1][pos_in_column + 2] != 0) 
-                                    	and (array[pos_in_row + 1][pos_in_column +3] != 0):
+                                print("ACÁAAAAAAAAAAA ", pos_in_row)
+                                if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row][pos_in_column 
+                                    + 1] != 0) and (array[pos_in_row][pos_in_column +
+                                    2] != 0) and (array[pos_in_row][pos_in_column +
+                                    3] == 0) and (array[pos_in_row +
+                                    1][pos_in_column] != 0) and (array[pos_in_row +
+                                    1][pos_in_column +
+                                    1] != 0) and (array[pos_in_row +
+                                    1][pos_in_column +
+                                    2] != 0) and (array[pos_in_row +
+                                    1][pos_in_column +
+                                    3] != 0):
                                     temp_array.append(
                                         array[pos_in_row][pos_in_column])
                                     temp_array.append(array[pos_in_row][
                                                       pos_in_column + 1])
                                     temp_array.append(array[pos_in_row][
                                                       pos_in_column + 2])
-                                    complete_array()
+                                    individual = complete_array(temp_array)
+                                    new_population.append(individual)
                                     pos_in_column += 1
                                     temp_array = []
                                 else:
                                     pos_in_column += 1
                                 pos_in_row += 1
                             else:
-                                if (array[pos_in_row][pos_in_column] != 0) 
-                                		and (array[pos_in_row][pos_in_column + 1] != 0) 
-                                		and (array[pos_in_row][pos_in_column + 2] != 0) 
-                                		and (array[pos_in_row][pos_in_column + 3] == 0):
+                                print("ENTRA ACÁ TAMBIEN")
+                                if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row][pos_in_column + 1] != 0) and (array[pos_in_row][pos_in_column + 2] != 0) and (array[pos_in_row][pos_in_column + 3] == 0):
                                     temp_array.append(
                                         array[pos_in_row][pos_in_column])
                                     temp_array.append(array[pos_in_row][
@@ -401,7 +412,8 @@ class Generation:
                     else:
                         print("NO es un extremo")
             count += 1
-
+            """
+   	#Revisado
     def complete_array(self, input_array):
         input_array_size = len(input_array)
         while input_array_size < 4:
@@ -412,15 +424,13 @@ class Generation:
 
     def execute_generation(self, number_generation=0):
         while number_generation < TOTAL_GENERATIONS:
-            population = generate_population(self.array)
+            population = self.generate_population(self.array)
             self.array = population
             print(population)
         return self.array
 
-
-
 array1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [
-    0, 0, 0, 0, 0, 0, 0], [0, 0, 2, 1, 0, 1, 0], [0, 2, 1, 1, 1, 2, 1]]
+    0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0]]
 nueva_generacion = Generation(array1, 1)
 
 array2 = nueva_generacion.generate_population(array1)
