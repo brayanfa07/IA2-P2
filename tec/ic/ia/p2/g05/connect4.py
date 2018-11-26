@@ -78,9 +78,8 @@ class GeneticConnect4(object):
                     inserted = False
                     while actual_position >= 0:
                         if (self.board_array[actual_position]
-                                [position] == 0 and inserted == False):
-                            self.board_array[actual_position][
-                                position] = disc_type
+                            [position] == 0 and inserted == False):
+                            self.board_array[actual_position][position] = disc_type
                             inserted = True
                             print("ACA TAMBIEN LLEGA")
                             print(next_player)

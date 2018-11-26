@@ -5,7 +5,6 @@ INDIVUALS_NEXT_GENERATION = 10
 
 # Class that create a new generation inside the Connect 4
 
-
 class Generation:
 
     def __init__(self, board_array, disc_type):
@@ -189,10 +188,10 @@ class Generation:
         win_value = False
         while (pos_in_row < row_size):
             while (pos_in_column + 3) < column_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row][pos_in_column +
-                                                                                                 1] == number_to_search) and (array[pos_in_row][pos_in_column +
-                                                                                                                                                2] == number_to_search) and (array[pos_in_row][pos_in_column +
-                                                                                                                                                                                               3] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row][pos_in_column +1] == number_to_search) 
+                		and (array[pos_in_row][pos_in_column +2] == number_to_search) 
+                		and (array[pos_in_row][pos_in_column +3] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -209,10 +208,10 @@ class Generation:
         win_value = False
         while pos_in_column < column_size:
             while (pos_in_row + 3) < row_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
-                                                                                     1][pos_in_column] == number_to_search) and (array[pos_in_row +
-                                                                                                                                       2][pos_in_column] == number_to_search) and (array[pos_in_row +
-                                                                                                                                                                                         3][pos_in_column] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row + 1][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row + 2][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row + 3][pos_in_column] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -229,13 +228,10 @@ class Generation:
         win_value = False
         while (pos_in_column + 3) < column_size:
             while (pos_in_row + 3) < row_size:
-                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
-                                                                                     1][pos_in_column +
-                                                                                        1] == number_to_search) and (array[pos_in_row +
-                                                                                                                           2][pos_in_column +
-                                                                                                                              2] == number_to_search) and (array[pos_in_row +
-                                                                                                                                                                 3][pos_in_column +
-                                                                                                                                                                    3] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row + 1][pos_in_column + 1] == number_to_search) 
+                		and (array[pos_in_row + 2][pos_in_column + 2] == number_to_search) 
+                		and (array[pos_in_row + 3][pos_in_column + 3] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -252,13 +248,10 @@ class Generation:
         win_value = False
         while (pos_in_row + 3) < row_size:
             while (pos_in_column < column_size):
-                if (array[pos_in_row][pos_in_column] == number_to_search) and (array[pos_in_row +
-                                                                                     1][pos_in_column -
-                                                                                        1] == number_to_search) and (array[pos_in_row +
-                                                                                                                           2][pos_in_column -
-                                                                                                                              2] == number_to_search) and (array[pos_in_row +
-                                                                                                                                                                 3][pos_in_column -
-                                                                                                                                                                    3] == number_to_search):
+                if (array[pos_in_row][pos_in_column] == number_to_search) 
+                		and (array[pos_in_row + 1][pos_in_column - 1] == number_to_search) 
+                		and (array[pos_in_row + 2][pos_in_column - 2] == number_to_search) 
+                		and (array[pos_in_row + 3][pos_in_column - 3] == number_to_search):
                     win_value = True
                     return win_value
                 else:
@@ -342,8 +335,9 @@ class Generation:
                         elif pos_in_row <= row_size - 3:
                             while (pos_in_column) < column_size:
                                 temp_array = []
-                                if (array[pos_in_row][pos_in_column] != 0) and (
-                                        array[pos_in_row + 1][pos_in_column] != 0) and ((array[pos_in_row + 2][pos_in_column] != 0)):
+                                if (array[pos_in_row][pos_in_column] != 0) 
+                                		and (array[pos_in_row + 1][pos_in_column] != 0) 
+                                		and ((array[pos_in_row + 2][pos_in_column] != 0)):
                                     temp_array.append(
                                         [(array[pos_in_row][pos_in_column])])
                                     temp_array.append(
@@ -365,17 +359,14 @@ class Generation:
                         while pos_in_column <= (column_size - 4):
                             temp_array = []
                             if pos_in_row != row_size - 1:
-                                if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row][pos_in_column +
-                                                                                                  1] != 0) and (array[pos_in_row][pos_in_column +
-                                                                                                                                  2] != 0) and (array[pos_in_row][pos_in_column +
-                                                                                                                                                                  3] == 0) and (array[pos_in_row +
-                                                                                                                                                                                      1][pos_in_column] != 0) and (array[pos_in_row +
-                                                                                                                                                                                                                         1][pos_in_column +
-                                                                                                                                                                                                                            1] != 0) and (array[pos_in_row +
-                                                                                                                                                                                                                                                1][pos_in_column +
-                                                                                                                                                                                                                                                   2] != 0) and (array[pos_in_row +
-                                                                                                                                                                                                                                                                       1][pos_in_column +
-                                                                                                                                                                                                                                                                          3] != 0):
+                                if (array[pos_in_row][pos_in_column] != 0) 
+                                    	and (array[pos_in_row][pos_in_column + 1] != 0)
+                                    	and (array[pos_in_row][pos_in_column + 2] != 0) 
+                                    	and (array[pos_in_row][pos_in_column + 3] == 0) 
+                                    	and (array[pos_in_row + 1][pos_in_column] != 0) 
+                                    	and (array[pos_in_row + 1][pos_in_column + 1] != 0) 
+                                    	and (array[pos_in_row + 1][pos_in_column + 2] != 0) 
+                                    	and (array[pos_in_row + 1][pos_in_column +3] != 0):
                                     temp_array.append(
                                         array[pos_in_row][pos_in_column])
                                     temp_array.append(array[pos_in_row][
@@ -389,8 +380,10 @@ class Generation:
                                     pos_in_column += 1
                                 pos_in_row += 1
                             else:
-                                if (array[pos_in_row][pos_in_column] != 0) and (array[pos_in_row][pos_in_column + 1] != 0) and (
-                                        array[pos_in_row][pos_in_column + 2] != 0) and (array[pos_in_row][pos_in_column + 3] == 0):
+                                if (array[pos_in_row][pos_in_column] != 0) 
+                                		and (array[pos_in_row][pos_in_column + 1] != 0) 
+                                		and (array[pos_in_row][pos_in_column + 2] != 0) 
+                                		and (array[pos_in_row][pos_in_column + 3] == 0):
                                     temp_array.append(
                                         array[pos_in_row][pos_in_column])
                                     temp_array.append(array[pos_in_row][
