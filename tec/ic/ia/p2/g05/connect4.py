@@ -10,13 +10,13 @@ class GeneticConnect4(object):
     def __init__(self):
         super(GeneticConnect4, self).__init__()
         self.board_array = [
-        					[0, 0, 0, 0, 0, 0, 0], 
-        					[0, 0, 0, 0, 0, 0, 0], 
-        					[0, 0, 0, 0, 0, 0, 0], 
-        					[0, 0, 0, 0, 0, 0, 0], 
-        					[0, 0, 0, 0, 0, 0, 0], 
-        					[0, 0, 0, 0, 0, 0, 0]
-        				    ]
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0]
+        ]
         self.player_one = ""
         self.player_two = ""
         return self.main_menu()
@@ -27,11 +27,11 @@ class GeneticConnect4(object):
         return 0
 
     def main_menu(self):
-        print("******** 	 CONNECT 4 GENÉTICO 	 **********")
+        print("********      CONNECT 4 GENÉTICO      **********")
         print()
-        print("		Tipos de juego: ")
-        print("		1. HUMANO - MÁQUINA")
-        print("		2. MÁQUINA - MÁQUINA")
+        print("    	Tipos de juego: ")
+        print("	    1. HUMANO - MÁQUINA")
+        print("	    2. MÁQUINA - MÁQUINA")
         print("")
         game_type = input(
             "Defina el tipo de juego seleccionando un número de opción --> ")
@@ -53,7 +53,7 @@ class GeneticConnect4(object):
         print()
         self.print_board()
         print()
-        print("		JUGADOR: " + player)
+        print("    	JUGADOR: " + player)
         print()
         disc_type = 0
         actual_player = ""
@@ -67,7 +67,6 @@ class GeneticConnect4(object):
             next_player = self.player_one
             actual_player = self.player_two
         if player == "HUMANO":
-            print(next_player)
             try:
                 position = eval(
                     input("ELIJA LA COLUMNA A COLOCAR LA FICHA, DEL 1 AL 7 --> "))
@@ -78,14 +77,18 @@ class GeneticConnect4(object):
                     actual_position = rows_count - 1
                     inserted = False
                     while actual_position >= 0:
-                        if (self.board_array[actual_position][position] == 0 and 
-                        	inserted == False):
+                        if (self.board_array[actual_position]
+                                [position] == 0 and inserted == False):
                             self.board_array[actual_position][
                                 position] = disc_type
                             inserted = True
+                            print("ACA TAMBIEN LLEGA")
+                            print(next_player)
                             return self.insert_disc(next_player)
+                            print("ACA TAMBIEN LLEGA 4")
                         else:
                             actual_position -= 1
+                    actual_position = 0
                     if actual_position < 0:
                         print("Escoja otra posición")
                         input("Presione una tecla para continuar --> ")
@@ -99,18 +102,20 @@ class GeneticConnect4(object):
                 input("Presione una tecla para continuar --> ")
                 return self.insert_disc(actual_player)
         else:
-            #generation = Generation(self.board_array, disc_type)
+            generation = Generation(self.board_array, disc_type)
             #self.board_array = generation.execute_generation()
-            self.insert_disc(next_player)
+            # print(self.board_array)
+            return self.insert_disc(next_player)
 
     # Function that print the board
+
     def print_board(self):
         os.system('clear')
         rows_count = len(self.board_array)
         columns_count = len(self.board_array[0])
         print()
-        print("		 1 2 3 4 5 6 7  ")
-        print("		_______________")
+        print("    	     1 2 3 4 5 6 7  ")
+        print("	    _______________")
         for i in range(rows_count):
             row = ""
             for j in range(columns_count):
@@ -120,8 +125,8 @@ class GeneticConnect4(object):
                     row = row + "X|"
                 else:
                     row = row + "O|"
-            print("		|" + row)
-        print("		*************** ")
-        print("		 1 2 3 4 5 6 7  ")
+            print("	    |" + row)
+        print("	    *************** ")
+        print("	     1 2 3 4 5 6 7  ")
         print()
         return 0
