@@ -94,9 +94,34 @@ class Generation:
     def selection(self, population):
         return 0
 
-    def fitness_funtion(self):
-        # IMPLEMENT THE CODE
-        return 0
+    def fitness_funtion(self, individual_array, disc_type):
+        row_size = len(individual_array)
+        function_value = 0
+        consecutive_value = calculate_consecutive(individual_array, disc_type)
+        if consecutive_value == 1:
+        	function_value = 25
+        elif consecutive_value == 2:
+        	function_value = 50
+       	elif consecutive_value == 3:
+       		function_value = 75
+       	elif consecutive_value == 4:
+       		function_value = 100
+       	else:
+       		function_value = 0
+        return function_value
+
+
+
+    def calculate_consecutive(self, individual_array, disc_type):
+    	consecutive_value = 0
+    	if individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type:
+    		return consecutive_value = 4
+    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type):
+    		return consecutive_value = 3
+    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[02] == disc_type and individual_array[3] == disc_type):
+    		return consecutive_value = 2
+    	elif (individual_array[0] == disc_type) or (individual_array[1] == disc_type) or (individual_array[2] == disc_type) or (individual_array[3] == disc_type):
+    		return consecutive_value = 1
 
     def define_population(self, board_array):
         # IMPLEMENT THE CODE
