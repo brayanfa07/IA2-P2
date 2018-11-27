@@ -1,5 +1,5 @@
 import os
-from generation import Generation
+from g05.generation import Generation
 
 # Class that implements the structure of the Connect4
 
@@ -19,7 +19,7 @@ class GeneticConnect4(object):
         ]
         self.player_one = ""
         self.player_two = ""
-        return self.main_menu()
+        
 
     def set_player(self, player_one, player_two):
         self.player_one = player_one

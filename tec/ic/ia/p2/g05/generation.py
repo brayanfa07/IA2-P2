@@ -115,13 +115,14 @@ class Generation:
     def calculate_consecutive(self, individual_array, disc_type):
     	consecutive_value = 0
     	if individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type:
-    		return consecutive_value = 4
+    		consecutive_value = 4
     	elif (individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type):
-    		return consecutive_value = 3
-    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[02] == disc_type and individual_array[3] == disc_type):
-    		return consecutive_value = 2
+    		consecutive_value = 3
+    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[2] == disc_type and individual_array[3] == disc_type):
+    		consecutive_value = 2
     	elif (individual_array[0] == disc_type) or (individual_array[1] == disc_type) or (individual_array[2] == disc_type) or (individual_array[3] == disc_type):
-    		return consecutive_value = 1
+    		consecutive_value = 1
+    	return consecutive_value
 
     def define_population(self, board_array):
         # IMPLEMENT THE CODE
@@ -338,6 +339,7 @@ class Generation:
         return value
 
     #REVISADO (ESTA PARTE)
+    """
     def generate_population(self, array):
         new_population = []
         if self.matrix_is_empty() == True:
@@ -361,32 +363,12 @@ class Generation:
                                     pos_in_row -= 1
                                 else:
                                 	pos_in_column += 1
-                            elif visited_extreme = True and pos_in_row  < row_size - 1:
+                            elif visited_extreme == True and pos_in_row  < row_size - 1:
                             	if array[pos_in_row][pos_in_column] != 0:
                                     temp_array.append(array[pos_in_row][pos_in_column])
                                 else:
                                 	pos_in_column += 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                """
                 elif direction == "horizontal":
                     if self.is_extreme(array, pos_in_row, pos_in_column):
                         while pos_in_column <= (column_size - 4):
@@ -437,7 +419,7 @@ class Generation:
                     else:
                         print("NO es un extremo")
             count += 1
-            """
+"""
    	#Revisado
     def complete_array(self, input_array):
         input_array_size = len(input_array)
@@ -454,12 +436,13 @@ class Generation:
             print(population)
         return self.array
 
+"""
 array1 = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [
     0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0]]
 nueva_generacion = Generation(array1, 1)
 
 array2 = nueva_generacion.generate_population(array1)
 print(array2)
-"""array2 = [1, 2, 1]
+array2 = [1, 2, 1]
 nueva_generacion.complete_array(array2)
 """
