@@ -22,10 +22,11 @@ Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genético
 
 ## 2. Connect 4 Genético
 
-En este proyecto los estudiantes desarrollaran un agente que sepa jugar Connect 4 ( https://en.wikipedia.org/wiki/Connect_Four ) utilizando una combinación de técnicas de búsqueda.
+![Imagen Tablero Connect 4 Genético](/images/tablero.png)
 
-Los algoritmos utilizados se encargaran de resolver diferentes aspectos del juego. Se espera que los estudiantes logren entrenar agentes que puedan jugar Connect 4 interactivamente con un humano, con la mayor inteligencia posible. Una vez entrenados los agentes deberá ser
-posible establecer una sesión de juego humano vs máquina o máquina vs máquina, con una interfaz de consola sencilla.
+En este proyecto los estudiantes desarrollaran un agente que sepa jugar Connect 4 (https://en.wikipedia.org/wiki/Connect_Four) utilizando una combinación de técnicas de búsqueda.
+
+Los algoritmos utilizados se encargaran de resolver diferentes aspectos del juego. Se espera que los estudiantes logren entrenar agentes que puedan jugar Connect 4 interactivamente con un humano, con la mayor inteligencia posible. Una vez entrenados los agentes deberá ser posible establecer una sesión de juego humano vs máquina o máquina vs máquina, con una interfaz de consola sencilla.
 
 ### Consideraciones generales de juego
 
@@ -42,8 +43,11 @@ Debería siempre tratar de hacer columnas? Siempre filas? Debería tratar de dej
 
 ## 3. Algoritmo General de Juego
 
-![Tablero imagen](/images/tablero.png)
+El concepto general del proyecto se enfocará en la realización de 3 tipos de jugadas en el tablero:
 
+- *Bloquear gane de oponente*: Cuando se va a insertar una ficha, se pretende verificar si existe la posibilidad de que en la siguiente jugada que haga el oponente este sea capaz de ganar, y si es así, se procede a bloquear la jugada insertando una ficha en la posición donde se formaría cuatro en línea.  Si el jugador es el humano, entonces el encargado de realizar la jugada
+- *Detectar y ejecutar movida para gane del agente*:
+- *Generar un nuevo movimiento (en ausencia de situaciones anteriores)*:
 
 
 ## 4. Estructura del Algoritmo Genético
