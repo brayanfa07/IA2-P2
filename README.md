@@ -92,9 +92,9 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 
 Para la visualización del tablero en el juego de Connect-4 Genético, se ha establecido la creación de un menú interactivo en el terminal de Linux, con el cual se eligirá la opción a ejecutar para iniciar con el juego.
 
-![IMagen Pytest-cov](/2.png)
+![IMagen Pytest-cov](/images/2.png)
 
-![IMagen Pytest-cov](/3.png)
+![IMagen Pytest-cov](/images/3.png)
 
 
 
