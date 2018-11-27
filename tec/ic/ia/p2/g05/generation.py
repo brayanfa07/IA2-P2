@@ -14,8 +14,7 @@ class Generation:
         self.array = board_array
         self.direction_array = [
             "vertical", "horizontal",
-            "left-diagonal", "right-diagonal"
-        ]
+            "left-diagonal", "right-diagonal"]
         self.disc_type = disc_type
         return None
 
