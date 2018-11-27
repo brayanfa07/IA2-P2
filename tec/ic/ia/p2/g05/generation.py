@@ -1,4 +1,6 @@
-import random
+from random import Random
+
+
 
 TOTAL_GENERATIONS = 10
 INDIVUALS_NEXT_GENERATION = 10
@@ -16,6 +18,7 @@ class Generation:
             "vertical", "horizontal",
             "left-diagonal", "right-diagonal"]
         self.disc_type = disc_type
+        self.random = Random(777)
         return None
 
     def mutation(self, population):
@@ -23,11 +26,11 @@ class Generation:
         column_size = len(population[0])
         mutated_population = []
         for i in range(row_size):
-            position = random.randint(0, 3)
+            position = self.random.randint(0, 3)
             if population[i][position] == 1:
-                population[i][position] == 2
+                population[i][position] = 2
             else:
-                population[i][position] == 1
+                population[i][position] = 1
             mutated_population.append(population[i])
         return mutated_population
 
@@ -40,7 +43,7 @@ class Generation:
             if row_size % 2 == 0:
                 first_index = 0
                 second_index = 1
-                while second_index != (row_size - 1):
+                while second_index < row_size:
                     temp_array = []
                     array_to_insert = []
                     array_to_insert.append(population[first_index])
@@ -49,8 +52,11 @@ class Generation:
                     temp_array.append(population[second_index][2:3])
                     array_to_insert[first_index][2:3] = temp_array[2:3]
                     array_to_insert[second_index][2:3] = temp_array[0:1]
-                    first_index += 1
-                    second_index += 1
+                    print("Valor")
+                    print(array_to_insert)
+                    print("---------------------------")
+                    first_index += 2
+                    second_index += 2
                     crossed_population.append(array_to_insert[first_index])
                     crossed_population.append(array_to_insert[second_index])
                 all_crossed = True
@@ -90,13 +96,23 @@ class Generation:
                 all_crossed = True
         return crossed_population
 
-    def selection(self, population):
-        return 0
+
+    def calculate_consecutive(self, individual_array, disc_type):
+        consecutive_value = 0
+        if individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type:
+            consecutive_value = 4
+        elif (individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type):
+            consecutive_value = 3
+        elif (individual_array[0] == disc_type and individual_array[1] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[2] == disc_type and individual_array[3] == disc_type):
+            consecutive_value = 2
+        elif (individual_array[0] == disc_type) or (individual_array[1] == disc_type) or (individual_array[2] == disc_type) or (individual_array[3] == disc_type):
+            consecutive_value = 1
+        return consecutive_value
 
     def fitness_funtion(self, individual_array, disc_type):
         row_size = len(individual_array)
         function_value = 0
-        consecutive_value = calculate_consecutive(individual_array, disc_type)
+        consecutive_value = self.calculate_consecutive(individual_array, disc_type)
         if consecutive_value == 1:
         	function_value = 25
         elif consecutive_value == 2:
@@ -109,23 +125,6 @@ class Generation:
        		function_value = 0
         return function_value
 
-
-
-    def calculate_consecutive(self, individual_array, disc_type):
-    	consecutive_value = 0
-    	if individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type:
-    		consecutive_value = 4
-    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type and individual_array[3] == disc_type):
-    		consecutive_value = 3
-    	elif (individual_array[0] == disc_type and individual_array[1] == disc_type) or (individual_array[1] == disc_type and individual_array[2] == disc_type) or (individual_array[2] == disc_type and individual_array[3] == disc_type):
-    		consecutive_value = 2
-    	elif (individual_array[0] == disc_type) or (individual_array[1] == disc_type) or (individual_array[2] == disc_type) or (individual_array[3] == disc_type):
-    		consecutive_value = 1
-    	return consecutive_value
-
-    def define_population(self, board_array):
-        # IMPLEMENT THE CODE
-        return 0
 
     #REVISADO
     def matrix_is_empty(self):
@@ -174,45 +173,6 @@ class Generation:
         else:
             equal_symbol = False
         return equal_symbol
-
-    def count_same_symbols(self, number_to_search,
-                           direction, array, i, j):
-        equal_symbol = True
-        before_position = j - 1
-        after_position = j + 1
-        under_position = i + 1
-        count_symbol = 0
-        while equal_symbol:
-            if direction == "left":
-                if array[i][before_position] == number_to_search:
-                    equal_symbol = True
-                    before_position += 1
-                    count_symbol += 1
-            elif direction == "right":
-                if array[i][after_position] == number_to_search:
-                    equal_symbol = True
-                    after_position += 1
-                    count_symbol += 1
-            elif direction == "down":
-                if array[under_position][j] == number_to_search:
-                    equal_symbol = True
-                    under_position += 1
-                    count_symbol += 1
-            elif direction == "down-left":
-                if array[under_position][before_position] == number_to_search:
-                    equal_symbol = True
-                    under_position += 1
-                    before_position += 1
-                    count_symbol += 1
-            elif direction == "down-right":
-                if array[under_position][after_position] == number_to_search:
-                    equal_symbol = True
-                    under_position += 1
-                    after_position += 1
-                    count_symbol += 1
-            else:
-                equal_symbol = False
-        return count_symbol
 
     #Revisado
     def win_row(self, array, number_to_search):
@@ -303,7 +263,7 @@ class Generation:
         individual_array = []
         count = 0
         while count < 4:
-            individual_array.append(random.randint(1, 2))
+            individual_array.append(self.random.randint(1, 2))
             count += 1
         return individual_array
 
@@ -327,27 +287,10 @@ class Generation:
 
     def random_direction(self):
         direction_array = ["vertical", "horizontal"]
-        index = random.randint(0, len(direction_array) - 1)
+        index = self.random.randint(0, len(direction_array) - 1)
         print(direction_array[index])
         return direction_array[0]
 
     def random_number(self):
-        value = random.randint(1, 2)
+        value = self.random.randint(1, 2)
         return value
-
-   	#Revisado
-    def complete_array(self, input_array):
-        input_array_size = len(input_array)
-        while input_array_size < 4:
-            input_array.append(self.random_number())
-            input_array_size += 1
-        print(input_array)
-        return input_array
-
-    def execute_generation(self, number_generation=0):
-        while number_generation < TOTAL_GENERATIONS:
-            population = self.generate_population(self.array)
-            self.array = population
-            print(population)
-        return self.array
-
