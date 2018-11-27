@@ -19,6 +19,9 @@ Elaboración del proyecto "Connect 4 Genético", creado con algoritmos genético
 
 ## 1. Introducción
 
+El juego de Connect 4 se trata de formar filas, columnas y diagonales de fichas, con un movimiento a la vez. Sin embargo la secuencia con la cual se colocan estas fichas no sigue un orden específico. El factor que siempre se mantiene es que se busca crear una cadena de 4 fichas y se trata de evitar que el contrincante cree una cadena de 4 fichas.
+
+En el presente proyecto se busca crear una agente de aprendizaje que cuente con las capacidades de aplicar técnicas básicas del Connect 4 además de que mejore sus estrategias con el transcurso de las partidas.
 
 ## 2. Connect 4 Genético
 
@@ -43,8 +46,6 @@ Debería siempre tratar de hacer columnas? Siempre filas? Debería tratar de dej
 
 ## 3. Algoritmo General de Juego
 
-
-# ***************VISUALIZACIÓN DE LOS GRÁFICOS ACTUALES
 
 El concepto general del proyecto se enfocará en la realización de 3 tipos de jugadas en el tablero:
 
@@ -91,9 +92,18 @@ Para la selección del algoritmo se elegirá una la cantidad de 7 individuos que
 
 Para la visualización del tablero en el juego de Connect-4 Genético, se ha establecido la creación de un menú interactivo en el terminal de Linux, con el cual se eligirá la opción a ejecutar para iniciar con el juego.
 
+![IMagen Pytest-cov](/2.png)
+
+![IMagen Pytest-cov](/3.png)
+
+
 
 
 ## 6. Pruebas Unitarias
+
+En la realización del proyecto se estableció que se va ejecutar las pruebas para el proyecto, con las que se va utilizar las herramientas de Pytest y Pytest-cov, y se obtuvieron los siguientes resultados:
+
+![IMagen Pytest-cov](/images/pytest-cov.jpeg)
 
 
 ## Referencias Bibliográficas
@@ -106,9 +116,16 @@ Para la visualización del tablero en el juego de Connect-4 Genético, se ha est
 - Serna, L. A., Alberte, A. D., Málaga, R. O., & Ibáñez, A. R. (s. f.). Sistemas Informáticos, 163.
 
 
-
-
 # Apéndice
 
 
 ## Manual de Instalación
+
+Para la ejecución del proyecto se requerirá tener instalado en Ubuntu la versión de Python 3.5 o superior.
+
+- Luego, se descomprimirá la carpeta del proyecto y se abrirá el siguiente directorio:
+**tec/ic/ia/p2/g05**
+
+- Desde esta carpeta, abrir el Terminal y escribir el comando **python3 main.py**
+
+Se procede a jugar una partida de Connect 4.

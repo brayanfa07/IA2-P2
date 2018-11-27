@@ -1,3 +1,4 @@
 {
+  "g05/test/test_connect4.py": true,
   "g05/test_connect4.py::test_main_menu": true
 }

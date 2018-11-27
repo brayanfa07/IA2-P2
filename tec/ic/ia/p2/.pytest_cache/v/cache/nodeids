@@ -1,3 +1,16 @@
 [
-  "g05/test/test_connect4.py::test_set_player"
+  "g05/test/test_generation.py::test_mutation",
+  "g05/test/test_generation.py::test_calculate_consecutive",
+  "g05/test/test_generation.py::test_fitness_funtion",
+  "g05/test/test_generation.py::test_matrix_is_empty",
+  "g05/test/test_generation.py::test_is_extreme",
+  "g05/test/test_generation.py::test_is_have_more_elements",
+  "g05/test/test_generation.py::test_win_row",
+  "g05/test/test_generation.py::test_win_column",
+  "g05/test/test_generation.py::test_win_right_diagonal",
+  "g05/test/test_generation.py::test_win_left_diagonal",
+  "g05/test/test_generation.py::test_generate_individual_array",
+  "g05/test/test_generation.py::test_search_array",
+  "g05/test/test_generation.py::test_random_direction",
+  "g05/test/test_generation.py::test_random_number"
 ]
