@@ -43,11 +43,22 @@ Debería siempre tratar de hacer columnas? Siempre filas? Debería tratar de dej
 
 ## 3. Algoritmo General de Juego
 
+
+#***************VISUALIZACIÓN DE LOS GRÁFICOS ACTUALES
+
 El concepto general del proyecto se enfocará en la realización de 3 tipos de jugadas en el tablero:
 
-- *Bloquear gane de oponente*: Cuando se va a insertar una ficha, se pretende verificar si existe la posibilidad de que en la siguiente jugada que haga el oponente este sea capaz de ganar, y si es así, se procede a bloquear la jugada insertando una ficha en la posición donde se formaría cuatro en línea.  Si el jugador es el humano, entonces el encargado de realizar la jugada
-- *Detectar y ejecutar movida para gane del agente*:
-- *Generar un nuevo movimiento (en ausencia de situaciones anteriores)*:
+- **Bloquear gane de oponente**: Cuando se va a insertar una ficha, se pretende verificar si existe la posibilidad de que en la siguiente jugada que haga el oponente este sea capaz de ganar, y si es así, se procede a bloquear la jugada insertando una ficha en la posición donde se formaría cuatro en línea.  Si el jugador es el humano, entonces el encargado de realizar la jugada debería cerciorarse de bloquear la jugada.
+
+Para la ejecución de este paso, se realiza la evolución genética de una población según lo indicado en el arreglo del tablero. Si el jugador no es HUMANO, entonces se trata de verificar si el oponente tiene posibilidades de ganar en la siguiente jugada, sino entonces se procede a realizar uno de los siguientes pasos.
+
+- **Detectar y ejecutar movida para gane del agente**: Cuando el agente compruebe que se puede ganar en la siguiente jugada en alguno de los individuos potenciales que se generen en la matriz, se decidirá colocar la ficha en la columna de gane.
+
+Para poder realizar esta jugada, si el jugador no es HUMANO, se hará un recorrido de la matriz de posiciones de fichas del tablero, con el que se comprobará la posición posible de gane, y de ahí se procederá a realizar la inserción en el tablero.
+
+- **Generar un nuevo movimiento (en ausencia de situaciones anteriores)**: En caso de que no haya posibilidad de que el jugador gane (que haya una fila, columna o vertical con 3 fichas del mismo tipo que está usando el jugador para que gane), ni tampoco de bloquear el gane del oponente (que hayan 3 fichas consecutivas que esté usando el oponente con posibilidad de agregar una ficha más).
+
+Para este caso, se sacará una población de indivduos a partir de la matriz de elementos del tablero, y a partir de ahí se hará evolución genética, para seleccionar el individuo que posea la probabilidad más alta de gane.
 
 
 ## 4. Estructura del Algoritmo Genético
