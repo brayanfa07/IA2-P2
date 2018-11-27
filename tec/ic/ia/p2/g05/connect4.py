@@ -1,5 +1,5 @@
 import os
-from g05.generation import Generation
+from generation import Generation
 
 # Class that implements the structure of the Connect4
 
@@ -39,6 +39,10 @@ class GeneticConnect4(object):
             self.set_player("HUMANO", "MÁQUINA")
         elif game_type == "2":
             self.set_player("MÁQUINA 1", "MÁQUINA 2")
+            print("MODO NO DISPONIBLE")
+            input("Presione una tecla para continuar...")
+            os.system('clear')
+            return self.main_menu()
         else:
             print("Ingrese una opción correcta")
             input("Presione una tecla para continuar --> ")
@@ -81,10 +85,8 @@ class GeneticConnect4(object):
                             [position] == 0 and inserted == False):
                             self.board_array[actual_position][position] = disc_type
                             inserted = True
-                            print("ACA TAMBIEN LLEGA")
                             print(next_player)
                             return self.insert_disc(next_player)
-                            print("ACA TAMBIEN LLEGA 4")
                         else:
                             actual_position -= 1
                     actual_position = 0
@@ -101,9 +103,9 @@ class GeneticConnect4(object):
                 input("Presione una tecla para continuar --> ")
                 return self.insert_disc(actual_player)
         else:
-            generation = Generation(self.board_array, disc_type)
-            #self.board_array = generation.execute_generation()
-            # print(self.board_array)
+            print("JUGADOR NO DISPONIBLE")
+            input("Presione una tecla para continuar...")
+            os.system('clear')
             return self.insert_disc(next_player)
 
     # Function that print the board
